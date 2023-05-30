@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>vehicle-srv</artifactId>
+        <groupId>com.amr.tc.bs.veh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.amr.tc.bs.veh.vpkg</groupId>
+    <artifactId>veh-pkg</artifactId>
+
+    <dependencies>
+        <dependency>
+            <artifactId>veh-app</artifactId>
+            <groupId>com.amr.tc.bs.veh.vehapp</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>veh-dom</artifactId>
+            <groupId>com.amr.tc.bs.veh.vehdom</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>veh-ifr</artifactId>
+            <groupId>com.amr.tc.bs.veh.vehifr</groupId>
+        </dependency>
+
+    </dependencies>
+
+</project>
