@@ -11,6 +11,7 @@
     <modules>
         <module>bs</module>
         <module>ifr</module>
+        <module>shared</module>
     </modules>
 
     <parent>
@@ -25,7 +26,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-boot.version>3.0.7</spring-boot.version>
+        <!--        submodules -->
         <microservice.submodules.version>1.0-SNAPSHOT</microservice.submodules.version>
+        <!--        libs -->
+        <libs.shared-bs.version>${microservice.submodules.version}</libs.shared-bs.version>
     </properties>
 
 
@@ -55,7 +59,20 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -67,25 +84,107 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--            vehicle service submodules-->
+            <!--            car submodules-->
             <dependency>
-                <artifactId>veh-app</artifactId>
-                <groupId>com.amr.tc.bs.veh.vehapp</groupId>
+                <artifactId>car-app</artifactId>
+                <groupId>com.amr.tc.bs.car.carapp</groupId>
                 <version>${microservice.submodules.version}</version>
             </dependency>
             <dependency>
-                <artifactId>veh-dom</artifactId>
-                <groupId>com.amr.tc.bs.veh.vehdom</groupId>
+                <artifactId>car-dom</artifactId>
+                <groupId>com.amr.tc.bs.car.cardom</groupId>
                 <version>${microservice.submodules.version}</version>
             </dependency>
             <dependency>
-                <artifactId>veh-ifr</artifactId>
-                <groupId>com.amr.tc.bs.veh.vehifr</groupId>
+                <artifactId>car-ifr</artifactId>
+                <groupId>com.amr.tc.bs.car.carifr</groupId>
                 <version>${microservice.submodules.version}</version>
             </dependency>
 
+            <!--            libs-->
+
+            <dependency>
+                <groupId>com.amr.tc.shared.shdbs</groupId>
+                <artifactId>shd-bs</artifactId>
+                <version>${libs.shared-bs.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>1.18.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>2.0.2</version>
+            </dependency>
         </dependencies>
 
+
     </dependencyManagement>
+
+
+
+
+
+
+
+
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.github.ferstl</groupId>
+                    <artifactId>depgraph-maven-plugin</artifactId>
+                    <version>4.0.0</version>
+                    <configuration>
+                        <graphFormat>puml</graphFormat>
+                        <scope>compile</scope>
+                        <excludes>
+                            <exclude>org.slf4j:slf4j-api</exclude>
+                            <exclude>com.google.guava:guava</exclude>
+                            <exclude>io.vavr:vavr</exclude>
+                        </excludes>
+                        <transitiveExcludes>
+                            <transitiveExclude>*</transitiveExclude>
+                        </transitiveExcludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>netflix-candidates</id>
+            <name>Netflix Candidates</name>
+            <url>https://artifactory-oss.prod.netflix.net/artifactory/maven-oss-candidates</url>
+        </repository>
+    </repositories>
+
+
+
+
+
+
+
+
+
 
 </project>

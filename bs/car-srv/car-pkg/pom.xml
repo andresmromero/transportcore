@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>car-srv</artifactId>
+        <groupId>com.amr.tc.bs.car</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.amr.tc.bs.car.carpkg</groupId>
+    <artifactId>car-pkg</artifactId>
+
+    <dependencies>
+        <dependency>
+            <artifactId>car-app</artifactId>
+            <groupId>com.amr.tc.bs.car.carapp</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>car-dom</artifactId>
+            <groupId>com.amr.tc.bs.car.cardom</groupId>
+        </dependency>
+        <dependency>
+            <artifactId>car-ifr</artifactId>
+            <groupId>com.amr.tc.bs.car.carifr</groupId>
+        </dependency>
+        <dependency>
+            <groupId>com.amr.tc.shared.shdbs</groupId>
+            <artifactId>shd-bs</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
