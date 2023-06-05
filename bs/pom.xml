@@ -14,7 +14,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>car-srv</module>
-        <module>op-request-rt</module>
+        <module>op-request-rt-srv</module>
+        <module>parking-srv</module>
     </modules>
     <dependencies>
         <dependency>
