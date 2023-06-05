@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>bs</artifactId>
+        <groupId>com.amr.tc.bs</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.amr.tc.bs.rqrt</groupId>
+    <artifactId>op-request-rt</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>request-pkg</module>
+    </modules>
+
+
+</project>
